@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outgrower Progress Tracker | Kipenzi Sugar Company Limited</title>
+  <meta name="description" content="Live progress tracker of registered outgrower farmers and hectares towards the 10,000-hectare target in Alego Usonga, Siaya County.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="tracker" style="padding-top: 84px;">
+  <div id="site-header"></div>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container page-banner-grid">
+      <div>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a> &gt; <span>Outgrower Progress Tracker</span>
+        </div>
+        <h1>10,000-Hectare Cane Mobilisation Tracker</h1>
+        <p class="lead">
+          Real-time visibility into outgrower land registration across Alego Usonga wards as we prepare for commercial sugar milling operations in Mur-Malanga.
+        </p>
+      </div>
+      <div>
+        <div class="card-glass" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #fff;">
+          <span class="badge badge-sample" style="margin-bottom: 0.5rem;">CROP MOBILISATION BENCHMARK</span>
+          <div style="font-size: 2rem; font-family: var(--font-serif); font-weight: 800; color: #FFD27D;">
+            <span data-count-target="4620" data-decimals="0">4,620</span> / 10,000 Ha
+          </div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.85);">46.2% of Factory Milling Supply Zone Signed [Sample]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Big Cumulative Tracker Strip with Animated SVG Circular Ring -->
+  <section class="section-pad section-readability-overlay">
+    <div class="container">
+      <div class="card-glass card-glow-border" style="padding: clamp(1.75rem, 4vw, 3rem); margin-bottom: 3rem;">
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <span class="badge badge-sample">SIMULATED PLANNING METRICS</span>
+            <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-top: 0.5rem;">Outgrower Readiness vs 10,000 Ha Target</h2>
+            <p style="color: var(--color-text-muted); margin-bottom: 0;">
+              Total certified area identified, surveyed, and enrolled for cane planting within the 15 km factory radius.
+            </p>
+          </div>
+
+          <!-- Circular Animated Progress Gauge (46.2%) -->
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="position: relative; width: 120px; height: 120px;">
+              <svg viewBox="0 0 100 100" style="transform: rotate(-90deg); width: 100%; height: 100%;">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#E6F5EE" stroke-width="8"/>
+                <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-primary)" stroke-width="8"
+                        stroke-dasharray="283" stroke-dashoffset="152" stroke-linecap="round"/>
+              </svg>
+              <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 800; color: var(--color-primary-dark); line-height: 1;">46.2%</span>
+                <span style="font-size: 0.65rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">Mobilised</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Linear Progress Bar -->
+        <div class="progress-bar-container" style="height: 20px;">
+          <div class="progress-bar-fill" style="width: 46.2%;"></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600; margin-top: 0.5rem;">
+          <span>0 Ha (Project Launch)</span>
+          <span>4,620 Ha (Current Enrolled [Sample])</span>
+          <span>10,000 Ha (Full 1,250 TCD Capacity)</span>
+        </div>
+
+        <!-- Metric highlights -->
+        <div class="grid-4" style="margin-top: 2.5rem; border-top: 1px solid var(--color-border); padding-top: 2rem;">
+          <div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Registered Farmers</div>
+            <div style="font-size: 2rem; font-family: var(--font-serif); font-weight: 800; color: var(--color-primary);" data-count-target="1840">1,840</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Contracted smallholders &amp; landowners [Sample]</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Enrolled Hectares</div>
+            <div style="font-size: 2rem; font-family: var(--font-serif); font-weight: 800; color: var(--color-accent);" data-count-target="4620">4,620</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Surveyed and GPS mapped [Sample]</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Average Plot Size</div>
+            <div style="font-size: 2rem; font-family: var(--font-serif); font-weight: 800; color: var(--color-primary-dark);">2.5 Ha</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">~6.2 acres per registered farmer</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Avg. Distance to Mill</div>
+            <div style="font-size: 2rem; font-family: var(--font-serif); font-weight: 800; color: var(--color-primary-dark);">8.4 KM</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Well within 15 km efficiency radius</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ward by Ward Breakdown with 3D Tilt Cards -->
+      <div style="margin-bottom: 2rem;">
+        <span class="section-eyebrow">Constituency Breakdown</span>
+        <h3 style="margin-bottom: 0.5rem;">Cane Mobilisation by Ward in Alego Usonga</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+          Distribution of contracted cane acreage across all administrative wards within our 15 km catchment. All figures are sample tracking data for investor and farmer illustration.
+        </p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3.5rem;">
+        <!-- Ward 1 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-mint">MILL HOST WARD</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">South East Alego</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Mur-Malanga, Bar Olengo, Nyang'oma</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">1,480 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 2,500 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 59%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>59% Mobilised</span>
+            <span>592 Registered Farmers</span>
+          </div>
+        </div>
+
+        <!-- Ward 2 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-orange">ZONE B</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">Central Alego</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Kakan, Boro, Nyadorera corridor</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">1,120 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 2,200 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 51%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>51% Mobilised</span>
+            <span>448 Registered Farmers</span>
+          </div>
+        </div>
+
+        <!-- Ward 3 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-mint">ZONE C</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">North Alego</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Holo, Pap Oriang' areas</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">820 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 1,800 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 45%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>45% Mobilised</span>
+            <span>328 Registered Farmers</span>
+          </div>
+        </div>
+
+        <!-- Ward 4 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-orange">ZONE D</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">West Alego</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Uranga, Ulafu areas</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">640 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 1,500 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 42%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>42% Mobilised</span>
+            <span>256 Registered Farmers</span>
+          </div>
+        </div>
+
+        <!-- Ward 5 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-mint">ZONE E</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">Siaya Township Periphery</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Mulaha, Karapul agricultural belts</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">360 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 1,000 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 36%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>36% Mobilised</span>
+            <span>144 Registered Farmers</span>
+          </div>
+        </div>
+
+        <!-- Ward 6 -->
+        <div class="card-glass ward-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span class="badge badge-orange">ZONE F</span>
+              <h4 style="margin-top: 0.35rem; font-size: 1.15rem;">Usonga Ward</h4>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">River Yala basin fertile plains</div>
+            </div>
+            <div style="text-align: right;">
+              <strong style="color: var(--color-primary); font-size: 1.25rem;">200 Ha</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">of 1,000 Ha Goal</div>
+            </div>
+          </div>
+          <div class="progress-bar-container" style="height: 10px;">
+            <div class="progress-bar-fill" style="width: 20%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+            <span>20% Mobilised</span>
+            <span>80 Registered Farmers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Licensing & Milling Readiness Note -->
+      <div class="payment-promise-banner">
+        <div class="payment-banner-grid">
+          <div>
+            <span class="badge badge-sample" style="margin-bottom: 0.75rem;">REGULATORY READINESS</span>
+            <h2>Aligning Crop Maturity with Factory Commissioning</h2>
+            <p>
+              Sugarcane requires <strong>18 to 22 months</strong> to reach peak sucrose maturity in Alego Usonga's climate. Kipenzi is synchronizing seed cane distribution so that first harvest schedules directly coincide with final mill dry-run testing and the issuance of the commercial milling license from the <strong>Sugar Directorate / Kenya Sugar Board</strong>.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              <a href="outgrowers.html#register" class="btn btn-primary">
+                Enroll Your Farm in This Planting Cycle &rarr;
+              </a>
+              <a href="investors.html#licensing" class="btn btn-outline-white">
+                View Regulatory Status Checklist
+              </a>
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.18);">
+            <h4 style="color: #FFD27D; margin-bottom: 0.5rem; font-size: 1.15rem;">Licensing Status Milestones</h4>
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.85); display: flex; flex-direction: column; gap: 0.6rem;">
+              <div>&#10003; <strong>NEMA EIA Study:</strong> Public comments period active</div>
+              <div>&#10003; <strong>Land Registration:</strong> Mur-Malanga factory site secured</div>
+              <div>&#10003; <strong>Sugar Board Registration:</strong> Outgrower framework approved</div>
+              <div>&#9679; <strong>EPRA Cogeneration:</strong> 3 MW permit under review [Sample]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <div id="floating-whatsapp"></div>
+  <script src="main.js"></script>
+</body>
+</html>

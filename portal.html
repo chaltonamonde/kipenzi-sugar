@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Portal [Interactive Demo] | Kipenzi Sugar Company Limited</title>
+  <meta name="description" content="Kipenzi Sugar interactive outgrower portal demo. View real-time weighbridge slips, 7-day payment status, M-Pesa receipts, and input credit balances.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="portal" style="padding-top: 84px;">
+  <div id="site-header"></div>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="padding-bottom: 2.5rem;">
+    <div class="container page-banner-grid">
+      <div>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a> &gt; <span>Farmer Portal Demo</span>
+        </div>
+        <h1>Mkulima Digital Portal & Dashboard</h1>
+        <p class="lead">
+          A fully interactive demonstration of the Kipenzi digital farmer portal. Experience how outgrowers monitor deliveries, digital weighbridge tickets, statutory 7-day payments, and input credit statements.
+        </p>
+      </div>
+      <div>
+        <div class="card-glass" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #fff;">
+          <span class="badge badge-sample" style="margin-bottom: 0.5rem;">INTERACTIVE DEMONSTRATION</span>
+          <div style="font-size: 1.35rem; font-family: var(--font-serif); font-weight: 800; color: #FFD27D;">
+            Sample Farmer: John Ochieng'
+          </div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.85);">Outgrower ID: KPZ-AL-8821 &bull; South East Alego (3.5 Ha)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portal Container Section -->
+  <section class="section-pad section-readability-overlay">
+    <div class="container">
+      
+      <!-- VIEW A: LOGIN CARD (Initial or when logged out) -->
+      <div class="card-glass" id="portal-login-card" style="max-width: 520px; margin: 0 auto; display: none;">
+        <div class="text-center" style="margin-bottom: 1.75rem;">
+          <div class="brand-emblem" style="margin: 0 auto 1rem; width: 50px; height: 50px;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 6 5 10c0 4.5 4 8.5 7 12 3-3.5 7-7.5 7-12 0-4-3-8-7-8zm0 17.5c-2.3-2.7-5-6-5-9.5 0-2.8 2.2-5.5 5-5.5s5 2.7 5 5.5c0 3.5-2.7 6.8-5 9.5z"/></svg>
+          </div>
+          <span class="badge badge-sample" style="margin-bottom: 0.5rem;">OUTGROWER LOGIN DEMO</span>
+          <h3 style="font-size: 1.45rem;">Sign In to Your Farmer Account</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+            Access your Mur-Malanga weighbridge receipts, M-Pesa payouts, and input records.
+          </p>
+        </div>
+
+        <form id="portal-login-form">
+          <div class="form-floating-group">
+            <input type="tel" id="portal-phone" class="form-floating-control" value="0712 345 678" placeholder=" " required>
+            <label for="portal-phone" class="form-floating-label">Registered Phone Number</label>
+          </div>
+
+          <div class="form-floating-group">
+            <input type="password" id="portal-pin" class="form-floating-control" value="1234" placeholder=" " required>
+            <label for="portal-pin" class="form-floating-label">Farmer Security PIN</label>
+            <div class="form-help">Default Demo PIN: 1234</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+            Sign In to Dashboard &rarr;
+          </button>
+        </form>
+      </div>
+
+      <!-- VIEW B: ACTIVE SAMPLE DASHBOARD (Displayed by default for demo convenience) -->
+      <div class="portal-container card-glow-border" id="portal-dashboard-card">
+        <!-- Portal Header Strip -->
+        <div class="portal-topbar">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-mint); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;">
+              JO
+            </div>
+            <div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">
+                John Ochieng' <span class="badge badge-sample" style="font-size: 0.7rem; vertical-align: middle;">[SAMPLE DATA]</span>
+              </div>
+              <div style="font-size: 0.82rem; color: rgba(255,255,255,0.75);">
+                Contract: <strong>KPZ-AL-8821</strong> &bull; South East Alego (Mur-Malanga) &bull; 3.5 Hectares
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="text-align: right;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: rgba(255,255,255,0.7); display: block;">M-Pesa Verified Account</span>
+              <strong style="color: #25D366; font-size: 0.95rem;">+254 712 *** *78</strong>
+            </div>
+            <button id="portal-logout-btn" class="btn btn-outline-white btn-sm" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+              Sign Out
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--color-border);">
+          <div style="background: #FFFFFF; padding: 1.5rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Delivered This Season</span>
+            <div style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 0.2rem 0;">
+              84.5 <span style="font-size: 1rem; font-family: var(--font-sans);">Tonnes</span>
+            </div>
+            <span style="font-size: 0.78rem; color: var(--color-success); font-weight: 600;">2 Deliveries Cleared</span>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 1.5rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Total Paid (7-Day Rule)</span>
+            <div style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 800; color: var(--color-primary-dark); margin: 0.2rem 0;">
+              KES 359,125
+            </div>
+            <span style="font-size: 0.78rem; color: var(--color-success); font-weight: 600;">100% Paid on Time via M-Pesa</span>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 1.5rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Input Credit Balance</span>
+            <div style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 800; color: var(--color-accent); margin: 0.2rem 0;">
+              KES 21,800
+            </div>
+            <span style="font-size: 0.78rem; color: var(--color-text-muted);">Remaining Seed/Fertiliser Loan</span>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 1.5rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted);">Next Field Harvest</span>
+            <div style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 0.2rem 0;">
+              Plot B (Ratoon)
+            </div>
+            <span style="font-size: 0.78rem; color: var(--color-text-muted);">Maturity: Month 19 (March 2027)</span>
+          </div>
+        </div>
+
+        <!-- Tabbed Navigation -->
+        <div class="portal-nav-tabs">
+          <button class="portal-tab-btn active" data-tab-target="tab-deliveries">
+            Weighbridge Slips (2)
+          </button>
+          <button class="portal-tab-btn" data-tab-target="tab-payouts">
+            Payment History &amp; M-Pesa (2)
+          </button>
+          <button class="portal-tab-btn" data-tab-target="tab-credit">
+            Input Credit Statement
+          </button>
+          <button class="portal-tab-btn" data-tab-target="tab-harvest">
+            Harvest Booking Status
+          </button>
+        </div>
+
+        <!-- Tab 1: Weighbridge Slips -->
+        <div class="portal-body portal-tab-pane" id="tab-deliveries">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h4 style="margin-bottom: 0.2rem;">Certified Electronic Weighbridge Slips</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">Automated tickets recorded at Mur-Malanga factory weigh station.</p>
+            </div>
+            <span class="badge badge-mint">Sugar Board Verified</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Slip ID</th>
+                  <th>Date &amp; Time</th>
+                  <th>Vehicle No.</th>
+                  <th>Gross Weight</th>
+                  <th>Tare Weight</th>
+                  <th>Net Cane</th>
+                  <th>Sucrose (Brix)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#KPZ-WB-2026-9041</strong></td>
+                  <td>14 Oct 2026, 10:45 AM</td>
+                  <td>KDH 384T (Tractor)</td>
+                  <td>48,200 kg</td>
+                  <td>6,100 kg</td>
+                  <td><strong>42.10 Tonnes</strong></td>
+                  <td>19.8&deg; (High Quality)</td>
+                  <td><span class="badge badge-mint">Processed &amp; Paid</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#KPZ-WB-2026-9018</strong></td>
+                  <td>12 Oct 2026, 02:15 PM</td>
+                  <td>KDK 712L (Truck)</td>
+                  <td>48,550 kg</td>
+                  <td>6,150 kg</td>
+                  <td><strong>42.40 Tonnes</strong></td>
+                  <td>19.4&deg; (Standard)</td>
+                  <td><span class="badge badge-mint">Processed &amp; Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Payouts & M-Pesa -->
+        <div class="portal-body portal-tab-pane" id="tab-payouts" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h4 style="margin-bottom: 0.2rem;">Statutory 7-Day Payment Receipts</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">Disbursed directly via M-Pesa bulk escrow.</p>
+            </div>
+            <span class="badge badge-sample">ZERO LATE PAYMENT INTEREST [PAID ON TIME]</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Voucher ID</th>
+                  <th>Delivery Ref</th>
+                  <th>Gross Cane</th>
+                  <th>Loan Recovered</th>
+                  <th>Net Disbursed</th>
+                  <th>M-Pesa Reference</th>
+                  <th>Payment Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#PV-2026-0814</strong></td>
+                  <td>#KPZ-WB-9041</td>
+                  <td>KES 214,710</td>
+                  <td>- KES 35,785</td>
+                  <td><strong style="color: var(--color-primary);">KES 178,925</strong></td>
+                  <td><span class="badge badge-mint">QJK8912LX4 (M-Pesa)</span></td>
+                  <td>19 Oct 2026 (Day 5)</td>
+                </tr>
+                <tr>
+                  <td><strong>#PV-2026-0792</strong></td>
+                  <td>#KPZ-WB-9018</td>
+                  <td>KES 216,240</td>
+                  <td>- KES 36,040</td>
+                  <td><strong style="color: var(--color-primary);">KES 180,200</strong></td>
+                  <td><span class="badge badge-mint">QJJ4581MN9 (M-Pesa)</span></td>
+                  <td>17 Oct 2026 (Day 5)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Input Credit Statement -->
+        <div class="portal-body portal-tab-pane" id="tab-credit" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h4 style="margin-bottom: 0.2rem;">Input Advance &amp; Recovery Ledger</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">Itemized breakdown of tractor services, seed, and fertilizer.</p>
+            </div>
+            <div style="font-weight: 700; color: var(--color-primary-dark);">
+              Remaining Due: <span style="color: var(--color-accent);">KES 21,800</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Item / Support Service</th>
+                  <th>Debit (Advance)</th>
+                  <th>Credit (Harvest Recovery)</th>
+                  <th>Running Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15 Mar 2025</td>
+                  <td>Tractor Plowing &amp; Furrowing (3.5 Ha)</td>
+                  <td>KES 42,000</td>
+                  <td>&mdash;</td>
+                  <td>KES 42,000</td>
+                </tr>
+                <tr>
+                  <td>22 Mar 2025</td>
+                  <td>Certified Seed Cane Setts (24.5 Tonnes)</td>
+                  <td>KES 98,000</td>
+                  <td>&mdash;</td>
+                  <td>KES 140,000</td>
+                </tr>
+                <tr>
+                  <td>10 Jun 2025</td>
+                  <td>Top-Dressing Fertilizer (CAN - 7 Bags)</td>
+                  <td>KES 24,500</td>
+                  <td>&mdash;</td>
+                  <td>KES 164,500</td>
+                </tr>
+                <tr style="background: var(--color-mint-light);">
+                  <td>17 Oct 2026</td>
+                  <td>Harvest Deduction (Slip #9018)</td>
+                  <td>&mdash;</td>
+                  <td>KES 36,040</td>
+                  <td>KES 128,460</td>
+                </tr>
+                <tr style="background: var(--color-mint-light);">
+                  <td>19 Oct 2026</td>
+                  <td>Harvest Deduction (Slip #9041)</td>
+                  <td>&mdash;</td>
+                  <td>KES 35,785</td>
+                  <td><strong style="color: var(--color-accent);">KES 21,800</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 4: Harvest Booking Status -->
+        <div class="portal-body portal-tab-pane" id="tab-harvest" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h4 style="margin-bottom: 0.2rem;">Active Farm Plots &amp; Harvest Schedule</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">Crop age and scheduled transport dispatches.</p>
+            </div>
+            <a href="harvest-transport.html#book" class="btn btn-primary btn-sm">Book Next Plot Harvest</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Plot Identifier</th>
+                  <th>Acreage</th>
+                  <th>Variety</th>
+                  <th>Crop Age</th>
+                  <th>Status</th>
+                  <th>Scheduled Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Plot A (Mur-Malanga East)</strong></td>
+                  <td>2.0 Hectares</td>
+                  <td>KEN 83-737 (High Brix)</td>
+                  <td>Harvested (Ratoon 1)</td>
+                  <td><span class="badge badge-mint">Harvest Completed</span></td>
+                  <td>Ratoon blanketing applied</td>
+                </tr>
+                <tr>
+                  <td><strong>Plot B (Bar Olengo Road)</strong></td>
+                  <td>1.5 Hectares</td>
+                  <td>D 8484</td>
+                  <td>15.5 Months</td>
+                  <td><span class="badge badge-sample">Maturing (Brix 16.2&deg;)</span></td>
+                  <td>Inspection scheduled at 18 Months (Feb 2027)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <div id="floating-whatsapp"></div>
+  <script src="main.js"></script>
+</body>
+</html>

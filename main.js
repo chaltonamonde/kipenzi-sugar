@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initFarmerPortal();
   initFormInterceptors();
   initMagneticButtons();
+
+  // 6. Mobile Layout & Navigation Helpers (Bottom Bar, Back to Top, Carousel Indicators)
+  renderMobileNavigationHelpers();
+  initCarouselIndicators();
 });
 
 /* ==========================================================================
@@ -69,20 +73,20 @@ function initLiveParallaxBackground() {
 
     <!-- Flying Birds -->
     <svg class="parallax-layer flying-bird" viewBox="0 0 60 30" style="width: 50px; height: 25px; top: 14%; left: 0;">
-      <path d="M5 20 Q 15 5, 30 18 Q 45 5, 55 20" fill="none" stroke="#07402F" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M5 20 Q 15 5, 30 18 Q 45 5, 55 20" fill="none" stroke="#f5b82e" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
 
     <!-- LAYER 1: Far Siaya Hills (Slowest: speed 0.08) -->
     <div class="parallax-layer" id="layer-far-hills" style="z-index: 1;">
       <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#B8DCCB" fill-opacity="0.5" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,213.3C840,203,960,149,1080,138.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z"></path>
+        <path fill="#18130d" fill-opacity="0.6" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,213.3C840,203,960,149,1080,138.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z"></path>
       </svg>
     </div>
 
     <!-- LAYER 2: Mid Hills & Acacia Silhouettes (Speed 0.16) -->
     <div class="parallax-layer" id="layer-mid-hills" style="z-index: 2;">
       <svg viewBox="0 0 1440 280" preserveAspectRatio="none">
-        <path fill="#8BBFA8" fill-opacity="0.65" d="M0,128L80,144C160,160,320,192,480,186.7C640,181,800,139,960,138.7C1120,139,1280,181,1360,202.7L1440,224L1440,320L0,320Z"></path>
+        <path fill="#1e1811" fill-opacity="0.75" d="M0,128L80,144C160,160,320,192,480,186.7C640,181,800,139,960,138.7C1120,139,1280,181,1360,202.7L1440,224L1440,320L0,320Z"></path>
       </svg>
     </div>
 
@@ -90,15 +94,15 @@ function initLiveParallaxBackground() {
     <div class="parallax-layer" id="layer-factory" style="z-index: 3;">
       <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
         <!-- Factory Chimneys & 3 MW Cogeneration Tower -->
-        <g fill="#07402F" opacity="0.82">
+        <g fill="#14100b" opacity="0.9">
           <!-- Main Milling Complex -->
           <rect x="820" y="110" width="130" height="90" rx="4"/>
           <polygon points="810,110 885,75 960,110"/>
           
           <!-- Cogeneration Boiler Tower -->
           <rect x="970" y="70" width="55" height="130" rx="3"/>
-          <line x1="970" y1="100" x2="1025" y2="100" stroke="#0B6E4F" stroke-width="2"/>
-          <line x1="970" y1="140" x2="1025" y2="140" stroke="#0B6E4F" stroke-width="2"/>
+          <line x1="970" y1="100" x2="1025" y2="100" stroke="#f5b82e" stroke-width="2"/>
+          <line x1="970" y1="140" x2="1025" y2="140" stroke="#f5b82e" stroke-width="2"/>
 
           <!-- High-Pressure Chimneys -->
           <rect x="1035" y="45" width="14" height="155"/>
@@ -110,21 +114,21 @@ function initLiveParallaxBackground() {
         </g>
 
         <!-- Animated Rising Boiler Smoke Particles -->
-        <g class="factory-smoke" fill="#FFFFFF" opacity="0.6">
+        <g class="factory-smoke" fill="#f5b82e" opacity="0.25">
           <circle cx="1042" cy="40" r="10"/>
           <circle cx="1068" cy="30" r="13"/>
           <circle cx="1050" cy="20" r="16"/>
         </g>
 
         <!-- Midground Sugarcane Crop Rows -->
-        <path fill="#2E7F5E" fill-opacity="0.85" d="M0,200 Q 360,170 720,205 T 1440,195 L 1440,320 L 0,320 Z"/>
+        <path fill="#17120c" fill-opacity="0.9" d="M0,200 Q 360,170 720,205 T 1440,195 L 1440,320 L 0,320 Z"/>
       </svg>
     </div>
 
     <!-- LAYER 4: Foreground Swaying Sugarcane Stalks (Speed 0.45) -->
     <div class="parallax-layer" id="layer-foreground-cane" style="z-index: 4;">
       <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
-        <g fill="#0B6E4F">
+        <g fill="#1b150e">
           <!-- Left Stalk Cluster -->
           <path class="swaying-cane" d="M20,180 Q 25,100 15,30 Q 35,60 22,180 Z"/>
           <path class="swaying-cane swaying-cane-delay" d="M45,180 Q 40,85 55,20 Q 55,75 48,180 Z"/>
@@ -370,8 +374,8 @@ function renderFloatingPillNavbar() {
                       <span class="mega-desc">Soil care, barazas &amp; inputs</span>
                     </div>
                   </a>
-                  <a href="portal.html" class="mega-link-card" style="background-color: var(--color-mint);">
-                    <div class="mega-icon" style="background: var(--color-primary); color: #fff;">
+                  <a href="portal.html" class="mega-link-card" style="background-color: var(--gold-tint); border: 1px solid var(--gold-border);">
+                    <div class="mega-icon" style="background: var(--gold-gradient); color: #0b0b0d;">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                     </div>
                     <div class="mega-content">
@@ -484,8 +488,8 @@ function renderFloatingPillNavbar() {
       <div class="mobile-nav-drawer">
         <div class="mobile-nav-header">
           <div class="brand-text">
-            <span class="brand-title" style="font-size: 1.25rem; color:#fff;">KIPENZI SUGAR</span>
-            <span class="brand-subtitle" style="color: rgba(255,255,255,0.7);">Siaya County, Kenya</span>
+            <span class="brand-title" style="font-size: 1.25rem; color: var(--text);">KIPENZI SUGAR</span>
+            <span class="brand-subtitle" style="color: var(--gold);">Siaya County, Kenya</span>
           </div>
           <button class="mobile-close-btn" id="mobile-menu-close" aria-label="Close Mobile Menu">&times;</button>
         </div>
@@ -853,8 +857,8 @@ function renderSharedFooter() {
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 6 5 10c0 4.5 4 8.5 7 12 3-3.5 7-7.5 7-12 0-4-3-8-7-8zm0 17.5c-2.3-2.7-5-6-5-9.5 0-2.8 2.2-5.5 5-5.5s5 2.7 5 5.5c0 3.5-2.7 6.8-5 9.5z"/></svg>
               </div>
               <div class="brand-text">
-                <span class="brand-title" style="font-size: 1.25rem; color:#fff;">KIPENZI</span>
-                <span class="brand-subtitle">SUGAR COMPANY LTD</span>
+                <span class="brand-title" style="font-size: 1.25rem; color: var(--text);">KIPENZI</span>
+                <span class="brand-subtitle" style="color: var(--gold);">SUGAR COMPANY LTD</span>
               </div>
             </div>
             <p data-i18n="footer_summary">
@@ -893,21 +897,21 @@ function renderSharedFooter() {
 
           <div>
             <h4 class="footer-col-title" data-i18n="footer_location_col">Factory &amp; Office</h4>
-            <ul class="footer-links-list" style="font-size: 0.88rem; color: rgba(255,255,255,0.75);">
+            <ul class="footer-links-list" style="font-size: 0.88rem; color: var(--text-muted);">
               <li style="margin-bottom: 0.85rem;">
-                <strong style="color: #fff; display: block;">Factory Site:</strong>
+                <strong style="color: var(--gold); display: block;">Factory Site:</strong>
                 Mur-Malanga Sub-Location, Bar Olengo, South East Alego, Alego Usonga, Siaya County, Kenya
               </li>
               <li style="margin-bottom: 0.85rem;">
-                <strong style="color: #fff; display: block;">Liaison Office:</strong>
+                <strong style="color: var(--gold); display: block;">Liaison Office:</strong>
                 Siaya Township Liaison Desk [Placeholder]
               </li>
               <li style="margin-bottom: 0.85rem;">
-                <strong style="color: #fff; display: block;">Farmer Helpline:</strong>
+                <strong style="color: var(--gold); display: block;">Farmer Helpline:</strong>
                 +254 (0) 700 000 000 [Sample]
               </li>
               <li>
-                <strong style="color: #fff; display: block;">Email Inquiries:</strong>
+                <strong style="color: var(--gold); display: block;">Email Inquiries:</strong>
                 info@kipenzisugar.co.ke [Placeholder]
               </li>
             </ul>
@@ -1478,5 +1482,130 @@ function initFormInterceptors() {
         form.reset();
       });
     }
+  });
+}
+
+/* ==========================================================================
+   14. MOBILE NAVIGATION HELPERS (Sticky Bottom Bar, Back to Top, Carousel Sync)
+   ========================================================================== */
+function renderMobileNavigationHelpers() {
+  if (document.getElementById('mobile-bottom-bar')) return;
+
+  // 1. Sticky Bottom Bar (4 Key Destinations: Home, Farmers, Register, Contact)
+  const bottomBar = document.createElement('nav');
+  bottomBar.id = 'mobile-bottom-bar';
+  bottomBar.setAttribute('aria-label', 'Mobile Navigation');
+
+  const path = window.location.pathname.toLowerCase();
+  const isHome = path.endsWith('index.html') || path.endsWith('/') || path === '';
+  const isFarmers = path.endsWith('outgrowers.html') && !window.location.hash.includes('register');
+  const isRegister = window.location.hash.includes('register');
+  const isContact = path.endsWith('contact.html');
+
+  bottomBar.innerHTML = `
+    <a href="index.html" class="mobile-bottom-item ${isHome ? 'active' : ''}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="outgrowers.html" class="mobile-bottom-item ${isFarmers && !isRegister ? 'active' : ''}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"></path>
+        <path d="M12 6v12"></path>
+        <path d="M8 10l4-4 4 4"></path>
+      </svg>
+      <span>Farmers</span>
+    </a>
+    <a href="outgrowers.html#register" class="mobile-bottom-item ${isRegister ? 'active' : ''}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="8.5" cy="7" r="4"></circle>
+        <line x1="20" y1="8" x2="20" y2="14"></line>
+        <line x1="23" y1="11" x2="17" y2="11"></line>
+      </svg>
+      <span>Register</span>
+    </a>
+    <a href="contact.html" class="mobile-bottom-item ${isContact ? 'active' : ''}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span>Contact</span>
+    </a>
+  `;
+  document.body.appendChild(bottomBar);
+
+  // 2. Back to Top Floating Button (Tap target >= 44px)
+  if (!document.getElementById('back-to-top-btn')) {
+    const bttBtn = document.createElement('button');
+    bttBtn.id = 'back-to-top-btn';
+    bttBtn.setAttribute('aria-label', 'Back to top');
+    bttBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    `;
+    document.body.appendChild(bttBtn);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        bttBtn.classList.add('visible');
+      } else {
+        bttBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    bttBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // 3. Auto-open first accordion item on mobile
+  if (window.innerWidth <= 768) {
+    const firstAccordion = document.querySelector('.accordion-item');
+    if (firstAccordion && !firstAccordion.classList.contains('open')) {
+      firstAccordion.classList.add('open');
+    }
+  }
+}
+
+/* ==========================================================================
+   15. HORIZONTAL CAROUSEL INDICATOR DOTS
+   ========================================================================== */
+function initCarouselIndicators() {
+  const carousels = document.querySelectorAll(
+    '.grid-3:not(.no-carousel), .carousel-mobile, .news-grid, .testimonials-grid, .doc-grid, .process-strip-flow'
+  );
+
+  carousels.forEach(carousel => {
+    const items = carousel.children;
+    if (items.length <= 1) return;
+
+    if (carousel.nextElementSibling && carousel.nextElementSibling.classList.contains('carousel-dots-indicator')) {
+      return;
+    }
+
+    const indicator = document.createElement('div');
+    indicator.className = 'carousel-dots-indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+
+    for (let i = 0; i < items.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+      indicator.appendChild(dot);
+    }
+
+    carousel.parentNode.insertBefore(indicator, carousel.nextSibling);
+
+    carousel.addEventListener('scroll', () => {
+      const scrollPos = carousel.scrollLeft;
+      const cardWidth = items[0].offsetWidth || 1;
+      const activeIndex = Math.min(items.length - 1, Math.round(scrollPos / cardWidth));
+      const dots = indicator.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIndex);
+      });
+    }, { passive: true });
   });
 }

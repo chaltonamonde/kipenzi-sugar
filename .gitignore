@@ -16,3 +16,6 @@ desktop.ini
 .tempmediaStorage/
 
 .vercel
+
+# Screenshots and Test artifacts
+*.png

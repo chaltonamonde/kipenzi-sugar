@@ -79,14 +79,14 @@ function initLiveParallaxBackground() {
     <!-- LAYER 1: Far Siaya Hills (Slowest: speed 0.08) -->
     <div class="parallax-layer" id="layer-far-hills" style="z-index: 1;">
       <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#18130d" fill-opacity="0.6" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,213.3C840,203,960,149,1080,138.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z"></path>
+        <path fill="#0d3b24" fill-opacity="0.6" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,213.3C840,203,960,149,1080,138.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z"></path>
       </svg>
     </div>
 
     <!-- LAYER 2: Mid Hills & Acacia Silhouettes (Speed 0.16) -->
     <div class="parallax-layer" id="layer-mid-hills" style="z-index: 2;">
       <svg viewBox="0 0 1440 280" preserveAspectRatio="none">
-        <path fill="#1e1811" fill-opacity="0.75" d="M0,128L80,144C160,160,320,192,480,186.7C640,181,800,139,960,138.7C1120,139,1280,181,1360,202.7L1440,224L1440,320L0,320Z"></path>
+        <path fill="#124c30" fill-opacity="0.75" d="M0,128L80,144C160,160,320,192,480,186.7C640,181,800,139,960,138.7C1120,139,1280,181,1360,202.7L1440,224L1440,320L0,320Z"></path>
       </svg>
     </div>
 
@@ -94,7 +94,7 @@ function initLiveParallaxBackground() {
     <div class="parallax-layer" id="layer-factory" style="z-index: 3;">
       <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
         <!-- Factory Chimneys & 3 MW Cogeneration Tower -->
-        <g fill="#14100b" opacity="0.9">
+        <g fill="#162e22" opacity="0.9">
           <!-- Main Milling Complex -->
           <rect x="820" y="110" width="130" height="90" rx="4"/>
           <polygon points="810,110 885,75 960,110"/>
@@ -114,21 +114,21 @@ function initLiveParallaxBackground() {
         </g>
 
         <!-- Animated Rising Boiler Smoke Particles -->
-        <g class="factory-smoke" fill="#f5b82e" opacity="0.25">
+        <g class="factory-smoke" fill="#f5b82e" opacity="0.45">
           <circle cx="1042" cy="40" r="10"/>
           <circle cx="1068" cy="30" r="13"/>
           <circle cx="1050" cy="20" r="16"/>
         </g>
 
         <!-- Midground Sugarcane Crop Rows -->
-        <path fill="#17120c" fill-opacity="0.9" d="M0,200 Q 360,170 720,205 T 1440,195 L 1440,320 L 0,320 Z"/>
+        <path fill="#185637" fill-opacity="0.9" d="M0,200 Q 360,170 720,205 T 1440,195 L 1440,320 L 0,320 Z"/>
       </svg>
     </div>
 
     <!-- LAYER 4: Foreground Swaying Sugarcane Stalks (Speed 0.45) -->
     <div class="parallax-layer" id="layer-foreground-cane" style="z-index: 4;">
       <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
-        <g fill="#1b150e">
+        <g fill="#1f6940" stroke="#22c55e" stroke-width="0.5">
           <!-- Left Stalk Cluster -->
           <path class="swaying-cane" d="M20,180 Q 25,100 15,30 Q 35,60 22,180 Z"/>
           <path class="swaying-cane swaying-cane-delay" d="M45,180 Q 40,85 55,20 Q 55,75 48,180 Z"/>

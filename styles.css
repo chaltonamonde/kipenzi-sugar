@@ -141,7 +141,14 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   position: relative;
-  background-color: var(--bg);
+  background-color: #0b0b0d;
+  background-image: 
+    linear-gradient(180deg, rgba(11, 11, 13, 0.84) 0%, rgba(15, 13, 10, 0.88) 50%, rgba(11, 11, 13, 0.94) 100%),
+    url('https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=80');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text);
 }
 
@@ -295,14 +302,12 @@ section, [id] {
   inset: 0;
   width: 100%;
   height: 100%;
-  /* Shift mood with deep luxury dark ambient gradient */
-  background: linear-gradient(
-    180deg,
-    #0b0b0d 0%,
-    #15110c 50%,
-    #0b0b0d 100%
-  );
-  transition: background 0.5s ease;
+  /* Shift mood with deep luxury dark ambient gradient and rich sugarcane plantation imagery */
+  background: 
+    linear-gradient(180deg, rgba(11, 11, 13, 0.75) 0%, rgba(21, 17, 12, 0.72) 40%, rgba(11, 11, 13, 0.88) 100%),
+    url('https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
 }
 
 .parallax-layer {
@@ -993,7 +998,13 @@ section, [id] {
    ========================================================================== */
 .hero-wrapper {
   position: relative;
-  background: linear-gradient(145deg, rgba(11, 11, 13, 0.96) 0%, rgba(21, 17, 12, 0.92) 45%, rgba(11, 11, 13, 0.96) 100%);
+  background-color: #0b0b0d;
+  background-image: 
+    linear-gradient(180deg, rgba(11, 11, 13, 0.65) 0%, rgba(21, 17, 12, 0.74) 50%, rgba(11, 11, 13, 0.96) 100%),
+    url('https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=80');
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--text);
@@ -1310,7 +1321,13 @@ section, [id] {
 .page-banner {
   position: relative;
   z-index: 2;
-  background: linear-gradient(145deg, rgba(11, 11, 13, 0.96) 0%, rgba(21, 17, 12, 0.94) 50%, rgba(11, 11, 13, 0.96) 100%);
+  background-color: #0b0b0d;
+  background-image: 
+    linear-gradient(145deg, rgba(11, 11, 13, 0.72) 0%, rgba(21, 17, 12, 0.78) 50%, rgba(11, 11, 13, 0.94) 100%),
+    url('https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1800&q=80');
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: var(--text);
   padding-top: clamp(6.5rem, 11vw, 9rem); /* Full-bleed bleed underneath floating pill navbar */
   padding-bottom: clamp(3rem, 6vw, 4.5rem);
@@ -1989,19 +2006,76 @@ section, [id] {
    5. SERVICE & WORK IMAGERY (SVG ILLUSTRATIONS & PHOTO SLOTS)
    ========================================================================== */
 /* Drop-In Photo Slots with CSS Gradient Fallbacks */
+/* Drop-In Photo Slots with Image Rendering & Visual Depth */
 .photo-slot {
   position: relative;
   width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: #15110c;
+  display: block;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gold-border);
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.photo-slot:hover img {
+  transform: scale(1.05);
+}
+
+.photo-slot-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 13, 0.08) 0%, rgba(11, 11, 13, 0.62) 100%);
+  pointer-events: none;
+}
+
+.photo-slot-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.photo-slot-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(11, 11, 13, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 184, 46, 0.4);
+  color: #f5b82e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Fallback when photo-slot has no img */
+.photo-slot:not(:has(img)) {
   background: linear-gradient(135deg, #07402F 0%, #0B6E4F 50%, #F28C28 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-md);
 }
 
-.photo-slot::after {
+.photo-slot:not(:has(img))::after {
   content: attr(data-slot-label);
   position: absolute;
   bottom: 12px;
@@ -2015,6 +2089,31 @@ section, [id] {
   border-radius: var(--radius-full);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+/* Card thumbnail for news & articles */
+.card-thumb {
+  position: relative;
+  width: calc(100% + 3rem);
+  height: 180px;
+  margin-top: -1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-thumb img {
+  transform: scale(1.05);
 }
 
 

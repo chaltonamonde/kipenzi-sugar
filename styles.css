@@ -1603,14 +1603,14 @@ p.lead {
    ========================================================================== */
 .card-glass {
   position: relative;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
   padding: clamp(1.5rem, 3vw, 2.25rem);
-  box-shadow: 0 16px 40px rgba(7, 64, 47, 0.08);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   transform-style: preserve-3d;
   will-change: transform;
   overflow: hidden;
@@ -1675,13 +1675,13 @@ p.lead {
    4. FORMS: PREMIUM & CREATIVE (FLOATING LABELS, VALIDATION, CANE VISUAL)
    ========================================================================== */
 .form-glass {
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--bg-elevated);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg);
   padding: clamp(1.75rem, 4vw, 3rem);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Floating Label Groups */
@@ -1694,10 +1694,10 @@ p.lead {
   width: 100%;
   height: 56px;
   padding: 1.25rem 1rem 0.35rem;
-  font-size: 0.95rem;
-  color: var(--color-text-main);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1.5px solid var(--color-border);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--gold-border);
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
 }
@@ -2018,7 +2018,8 @@ p.lead {
     transform: none !important;
   }
   .card-glass:active {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(245, 184, 46, 0.08);
+    border-color: var(--gold);
   }
 }
 
@@ -3403,6 +3404,226 @@ input, select, textarea, .form-control, .form-floating-control {
 input:focus, select:focus, textarea:focus, .form-control:focus, .form-floating-control:focus {
   border-color: var(--gold) !important;
   box-shadow: 0 0 0 4px rgba(245, 184, 46, 0.2) !important;
+}
+
+/* ==========================================================================
+   MASTER COMPONENT STYLING & HIGH CONTRAST GUARANTEE (WCAG AA)
+   ========================================================================== */
+
+/* Universal Premium Card Component */
+.card, .card-glass, .card-white, .card-cream, .stat-card, .figure-card, 
+.radio-card, .ward-card, .spec-card, .benefit-card, .news-card, .doc-card, 
+.step-card, .process-step-item, .calculator-card, .portal-container {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: var(--text) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.card:hover, .card-glass:hover, .card-white:hover, .stat-card:hover,
+.ward-card:hover, .spec-card:hover, .benefit-card:hover, .news-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(245, 184, 46, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(245, 184, 46, 0.15) !important;
+}
+
+/* Text Hierarchy & High Contrast Guarantee on Cards */
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+.card-glass h3, .card-glass h4, .card-title {
+  color: var(--text) !important;
+  font-family: var(--font-serif) !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.card p, .card-glass p, .card-text, .benefit-card p, .spec-card p {
+  color: var(--text-muted) !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+}
+
+.card span, .card-glass span {
+  color: inherit;
+}
+
+/* Form Shells, Fieldsets & Containers */
+form, .form-glass, .contact-form, .wizard-container {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Premium Form Inputs & Selects */
+input[type="text"], input[type="email"], input[type="tel"], 
+input[type="number"], input[type="password"], select, textarea,
+.form-control, .form-floating-control {
+  background-color: var(--bg) !important;
+  border: 1.5px solid var(--gold-border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 1rem !important; /* 16px prevents iOS zoom */
+  min-height: 44px !important;
+  padding: 0.75rem 1rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(207, 200, 187, 0.45) !important;
+}
+
+input:focus, select:focus, textarea:focus,
+.form-control:focus, .form-floating-control:focus {
+  background-color: var(--bg-elevated) !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 3px rgba(245, 184, 46, 0.25) !important;
+  outline: none !important;
+}
+
+/* Form Labels & Legends */
+label, .form-label, .form-floating-label, legend {
+  color: var(--gold) !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  margin-bottom: 0.35rem !important;
+  display: block !important;
+}
+
+/* Custom Checkbox & Radio Accents */
+input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--gold) !important;
+  width: 20px !important;
+  height: 20px !important;
+  cursor: pointer !important;
+}
+
+/* Tables & Scrollable Data Wrappers */
+.table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--gold-border) !important;
+  background: var(--bg-card) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.table-custom, table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  text-align: left !important;
+  font-size: 0.95rem !important;
+}
+
+.table-custom th, table th {
+  background: var(--bg-elevated) !important;
+  color: var(--gold) !important;
+  font-family: var(--font-serif) !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 1rem 1.25rem !important;
+  border-bottom: 1.5px solid var(--gold-border) !important;
+  white-space: nowrap !important;
+}
+
+.table-custom td, table td {
+  padding: 1rem 1.25rem !important;
+  border-bottom: 1px solid rgba(245, 166, 35, 0.12) !important;
+  color: var(--text) !important;
+  font-size: 0.92rem !important;
+}
+
+.table-custom tr:hover td, table tr:hover td {
+  background-color: var(--gold-tint) !important;
+}
+
+/* Modals & Dialog Boxes */
+.modal-overlay {
+  background: rgba(11, 11, 13, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.modal-box {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(245, 184, 46, 0.12) !important;
+  color: var(--text) !important;
+}
+
+.modal-close-btn {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--gold-border) !important;
+  color: var(--gold) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.modal-close-btn:hover {
+  background: var(--gold) !important;
+  color: #0b0b0d !important;
+}
+
+/* Toasts & Alerts */
+.toast, .alert {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--text) !important;
+}
+
+/* ==========================================================================
+   MOBILE-FIRST RESPONSIVE AUDIT GUARDS (320px - 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Body Typography at least 16px */
+  body, p, li, .card p, .card-text, .lead-p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Tap Target Guarantee */
+  a.btn, button.btn, button, .mobile-bottom-item, .accordion-trigger, .pill-portal-link {
+    min-height: 44px !important;
+  }
+
+  /* Responsive Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Screen width 320px ultra-compact resilience */
+  .floating-navbar-container {
+    padding: 0 0.25rem !important;
+  }
+  .nav-pill {
+    padding: 0 0.5rem !important;
+  }
+  .pill-logo-title {
+    font-size: clamp(0.92rem, 3.8vw, 1.15rem) !important;
+  }
 }
 
 

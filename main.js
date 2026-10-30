@@ -963,18 +963,32 @@ function renderFloatingWhatsApp() {
   `;
 
   const closeBtn = document.getElementById('wa-teaser-close-btn');
+  const teaser = document.getElementById('wa-teaser');
+
+  // Dismiss handling via localStorage
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const teaser = document.getElementById('wa-teaser');
       if (teaser) teaser.style.display = 'none';
-      sessionStorage.setItem('wa_dismissed', '1');
+      localStorage.setItem('wa_dismissed', '1');
     });
   }
-  if (sessionStorage.getItem('wa_dismissed') === '1') {
-    const teaser = document.getElementById('wa-teaser');
+
+  // Check persistent dismissal
+  if (localStorage.getItem('wa_dismissed') === '1') {
     if (teaser) teaser.style.display = 'none';
+  } else if (teaser) {
+    // Show once and auto-collapse after 5 seconds
+    setTimeout(() => {
+      if (teaser && teaser.style.display !== 'none') {
+        teaser.style.opacity = '0';
+        teaser.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => {
+          teaser.style.display = 'none';
+        }, 400);
+      }
+    }, 5000);
   }
 }
 

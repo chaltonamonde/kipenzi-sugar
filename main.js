@@ -942,9 +942,10 @@ function renderFloatingWhatsApp() {
   mount.innerHTML = `
     <div class="floating-whatsapp-container">
       <div class="whatsapp-popup-teaser" id="wa-teaser">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <button class="wa-teaser-close" id="wa-teaser-close-btn" aria-label="Close notification" title="Dismiss prompt">&times;</button>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
         <div class="whatsapp-teaser-text">
-          <span data-i18n="wa_prompt">Have questions about cane contracts or planting?</span>
+          <span data-i18n="wa_prompt">Have questions about cane planting?</span>
           <br><strong style="color: var(--color-primary);" data-i18n="wa_chat">Chat with Kipenzi Agro Desk</strong>
         </div>
       </div>
@@ -960,6 +961,21 @@ function renderFloatingWhatsApp() {
       </a>
     </div>
   `;
+
+  const closeBtn = document.getElementById('wa-teaser-close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const teaser = document.getElementById('wa-teaser');
+      if (teaser) teaser.style.display = 'none';
+      sessionStorage.setItem('wa_dismissed', '1');
+    });
+  }
+  if (sessionStorage.getItem('wa_dismissed') === '1') {
+    const teaser = document.getElementById('wa-teaser');
+    if (teaser) teaser.style.display = 'none';
+  }
 }
 
 function renderSuccessModal() {

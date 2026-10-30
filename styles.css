@@ -2471,6 +2471,220 @@ p.lead {
 }
 
 /* ==========================================================================
+   Project Roadmap Timeline & Community Charter Components
+   ========================================================================== */
+.timeline-section-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.timeline-column {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.timeline-lead-desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.timeline-step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 18px;
+  align-items: flex-start;
+  position: relative;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 38px;
+  bottom: -28px;
+  width: 2px;
+  background: var(--gold-border);
+  z-index: 1;
+}
+
+.timeline-badge {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 12px rgba(245, 184, 46, 0.25);
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 0.4rem 0;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.timeline-desc {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.community-charter-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  min-width: 0;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-card);
+}
+
+.promise-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promise-feature-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 14px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.promise-feature-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 3px;
+  color: var(--gold);
+  stroke: var(--gold);
+  flex-shrink: 0;
+}
+
+.promise-feature-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.promise-feature-text strong {
+  color: var(--text);
+  font-weight: 700;
+  display: inline;
+}
+
+.enquiry-card {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.enquiry-info {
+  min-width: 0;
+}
+
+.enquiry-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 4px 0;
+}
+
+.enquiry-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.enquiry-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+#wa-teaser-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+#wa-teaser-close-btn:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================================
    Floating WhatsApp & Sticky Action
    ========================================================================== */
 .floating-whatsapp-container {
@@ -3008,8 +3222,35 @@ body[data-page="index"] .hero-wrapper {
     font-size: 0.68rem !important;
   }
 
-  /* 2. Feature / Benefit / Service / Radio Cards: 2-column grid */
-  .grid-2, .grid-4, .radio-card-grid, .ward-grid, .stats-2col-mobile {
+  /* 2. Layout Grids (Single Column Stack) vs Compact Cards (2-Col) */
+  .grid,
+  .grid-2,
+  .timeline-section-grid,
+  .hero-grid,
+  .page-header-grid,
+  .page-banner-grid,
+  .payment-banner-grid,
+  .calc-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .grid > *,
+  .grid-2 > *,
+  .timeline-section-grid > *,
+  .timeline-column > *,
+  .community-charter-card > * {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* Compact 2-column cards (stats, radio options, wards) */
+  .grid-4,
+  .radio-card-grid,
+  .ward-grid,
+  .stats-2col-mobile {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
@@ -3193,21 +3434,22 @@ body[data-page="index"] .hero-wrapper {
 
   /* 10. Sticky Mobile Bottom Bar */
   #mobile-bottom-bar {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     position: fixed !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 52px !important;
-    background: rgba(17, 14, 10, 0.94) !important;
+    height: 56px !important;
+    background: rgba(17, 14, 10, 0.96) !important;
     backdrop-filter: blur(14px) !important;
     -webkit-backdrop-filter: blur(14px) !important;
     border-top: 1px solid var(--gold-border) !important;
     z-index: 9995 !important;
     align-items: center !important;
-    justify-content: space-around !important;
-    padding: 0 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
   }
   .mobile-bottom-item {
@@ -3217,11 +3459,13 @@ body[data-page="index"] .hero-wrapper {
     justify-content: center !important;
     text-decoration: none !important;
     color: var(--text-muted) !important;
-    min-width: 48px !important;
-    min-height: 44px !important;
-    font-size: 0.68rem !important;
+    min-height: 56px !important;
+    height: 56px !important;
+    width: 100% !important;
+    font-size: 0.72rem !important;
     font-weight: 500 !important;
     gap: 3px !important;
+    box-sizing: border-box !important;
     transition: color 0.2s ease !important;
   }
   .mobile-bottom-item svg {
@@ -3232,22 +3476,41 @@ body[data-page="index"] .hero-wrapper {
     color: var(--gold) !important;
   }
 
-  /* 11. Floating Back to Top Button */
+  /* 11. Floating WhatsApp Button & Back to Top Hierarchy */
+  .floating-whatsapp-container {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 16px !important;
+    z-index: 9990 !important;
+    gap: 8px !important;
+  }
+  .whatsapp-btn-float {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .whatsapp-btn-float svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .whatsapp-popup-teaser {
+    max-width: 230px !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
   #back-to-top-btn {
     display: flex !important;
     position: fixed !important;
-    bottom: 64px !important;
-    right: 14px !important;
+    bottom: calc(132px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 16px !important;
     width: 44px !important;
     height: 44px !important;
     border-radius: 50% !important;
     background: var(--bg-elevated) !important;
-    border: 1px solid var(--gold-border) !important;
+    border: 1.5px solid var(--gold-border) !important;
     color: var(--gold) !important;
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-    z-index: 9990 !important;
+    z-index: 9989 !important;
     cursor: pointer !important;
     opacity: 0;
     pointer-events: none;
@@ -3258,6 +3521,179 @@ body[data-page="index"] .hero-wrapper {
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: translateY(0) !important;
+  }
+
+  /* 12. Project Timeline & Community Promise Stacking */
+  .timeline-section-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .timeline-column {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .timeline-lead-desc {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .roadmap-timeline {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    position: relative !important;
+    margin-top: 1rem !important;
+  }
+  .timeline-step {
+    display: grid !important;
+    grid-template-columns: 36px 1fr !important;
+    gap: 14px !important;
+    align-items: flex-start !important;
+    position: relative !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .timeline-step:not(:last-child)::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 17px !important;
+    top: 38px !important;
+    bottom: -24px !important;
+    width: 2px !important;
+    background: var(--gold-border) !important;
+    z-index: 1 !important;
+  }
+  .timeline-badge {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 50% !important;
+    background: var(--bg-elevated) !important;
+    border: 1.5px solid var(--gold) !important;
+    color: var(--gold) !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-shadow: 0 0 10px rgba(245, 184, 46, 0.25) !important;
+  }
+  .timeline-content {
+    flex: 1 !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .timeline-title {
+    font-family: var(--font-serif) !important;
+    font-size: clamp(1.05rem, 3.8vw, 1.25rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    color: var(--text) !important;
+    margin: 0 0 0.35rem 0 !important;
+    line-height: 1.3 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .timeline-desc {
+    font-family: var(--font-sans) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* Community Charter & Feature List Alignment */
+  .community-charter-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 1.25rem !important;
+    margin-top: 0.5rem !important;
+  }
+  .promise-feature-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1.25rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .promise-feature-item {
+    display: grid !important;
+    grid-template-columns: 20px 1fr !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+    min-width: 0 !important;
+  }
+  .promise-feature-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    margin-top: 3px !important;
+    color: var(--gold) !important;
+    stroke: var(--gold) !important;
+    flex-shrink: 0 !important;
+  }
+  .promise-feature-text {
+    font-family: var(--font-sans) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .promise-feature-text strong {
+    color: var(--text) !important;
+    font-weight: 700 !important;
+    display: inline !important;
+  }
+
+  /* Enquiry Card */
+  .enquiry-card {
+    width: 100% !important;
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--gold-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 16px !important;
+    margin-top: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  }
+  .enquiry-info {
+    min-width: 0 !important;
+  }
+  .enquiry-title {
+    font-family: var(--font-sans) !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: var(--text) !important;
+    margin: 0 0 4px 0 !important;
+  }
+  .enquiry-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+  }
+  .enquiry-btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px 16px !important;
+    box-sizing: border-box !important;
   }
   #back-to-top-btn:active {
     transform: scale(0.92) !important;
@@ -3623,6 +4059,25 @@ input[type="checkbox"], input[type="radio"] {
   }
   .pill-logo-title {
     font-size: clamp(0.92rem, 3.8vw, 1.15rem) !important;
+  }
+
+  /* Body bottom padding guarantees content clearance above bottom bar + WhatsApp button */
+  body {
+    padding-top: 68px !important;
+    padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  section, [id] {
+    scroll-margin-top: 76px !important;
+  }
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  .container {
+    padding-left: clamp(16px, 4vw, 20px) !important;
+    padding-right: clamp(16px, 4vw, 20px) !important;
+    box-sizing: border-box !important;
   }
 }
 
